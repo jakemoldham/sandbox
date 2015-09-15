@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_front_project_id: MyString
+  name: MyString
+  objCode: MyString
+  percentComplete: 1.5
+  plannedCompletionDate: MyString
+  plannedStartDate: MyString
+  projectedCompletionDate: MyString
+  status: MyString
+
+two:
+  work_front_project_id: MyString
+  name: MyString
+  objCode: MyString
+  percentComplete: 1.5
+  plannedCompletionDate: MyString
+  plannedStartDate: MyString
+  projectedCompletionDate: MyString
+  status: MyString
