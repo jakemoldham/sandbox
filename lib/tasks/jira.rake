@@ -5,9 +5,9 @@ namespace :jira do
     require "#{Rails.root}/lib/jira_client.rb"
 
     response = Typhoeus::Request.get("http://ringseven.atlassian.net/rest/api/2/", headers: {Authorization: "amFrZW1vbGRoYW06SHUzM2VyMDg=", Data: "gzip", Content: "application/json;charset=UTF-8"})
-    sc = JiraClient.new("http://ringseven.atlassian.net/rest/api/2/")
-    project = sc.search('issues', {})
-    puts project
+    jc = JiraClient.new("http://ringseven.atlassian.net/rest/api/2/")
+    project = jc.latest('issues', {})
+    project
   end
 end
 
@@ -28,6 +28,28 @@ end
 
     #   projects.each do |project|
     #     puts "Project -> key: #{project.key}, name: #{project.name}"
+    #   end
+
+
+
+  #   require 'rest_client'
+  #   require 'json'
+
+  #   project_key = ""
+  #   jira_url = "jakemoldham:Hu33er08 https://ringseven.atlassian.net/rest/api/latest/issue/VIR-1082"
+  #   # latest 5 issues from a project with 'Major' priority
+  #   filter = "maxResults=5&fields=summary,status,resolution&jql=project+%3D+%22#{project_key}%22+AND+priority+%3D+%22Major%22"
+
+  #   response = RestClient.get("#{jira_url}+#{filter}")
+  #   if(response.code != 200)
+  #     raise "Error with the http request!"
+  #   end
+
+  #   data = JSON.parse(response.body)
+  #   data['issues'].each do |issue|
+  #     puts "Key: #{issue['key']}, Summary: #{issue['fields']['summary']}"
+  #   end
+  # end 
 
   # use OmniAuth::Builder do
   # provider :JIRA, 
